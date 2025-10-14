@@ -5,7 +5,7 @@ public class WordMatch
     /** Constructs a WordMatch object with the given secret string of lowercase letters. */
     public WordMatch(String word)
     {
-
+        secret = word;
     }
 
     /** Returns a score for guess, as described in part (a).
@@ -13,7 +13,15 @@ public class WordMatch
      */
     public int scoreGuess(String guess)
     {
-        return 0;
+        int score = 0;
+        for(int i = 0; i <= secret.length() - guess.length(); i++)
+        {
+            if (secret.substring(i, i + guess.length()).equals(guess))
+            {
+                score++;
+            }
+        }
+        return score * guess.length() * guess.length();
     }
 
     /** Returns the better of two guesses, as determined by scoreGuess and the rules for a
@@ -23,6 +31,18 @@ public class WordMatch
      */
     public String findBetterGuess(String guess1, String guess2)
     {
-        return null;
+        if (scoreGuess(guess1) > scoreGuess(guess2))
+        {
+            return guess1;
+        }
+        if (scoreGuess(guess2) > scoreGuess(guess1))
+        {
+            return guess2;
+        }
+        if (guess1.compareTo(guess2) > 0) return guess1;
+        else
+        {
+            return guess2;
+        }
     }
 }
