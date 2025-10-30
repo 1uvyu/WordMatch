@@ -1,3 +1,7 @@
+import java.io.FileNotFoundException;
+import java.io.File;
+import java.util.Scanner;
+
 public class Main
 {
     public static void main(String[] args)
@@ -15,5 +19,13 @@ public class Main
         System.out.println(game.scoreGuess("con"));
         System.out.println(game.scoreGuess("cat"));
         System.out.println(game.findBetterGuess("con", "cat"));
+    }
+
+    public static int read() throws FileNotFoundException
+    {
+        int score = 0;
+        File f = new File("Guesses.txt");
+        Scanner s = new Scanner(f);
+        While
     }
 }
